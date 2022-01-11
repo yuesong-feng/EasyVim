@@ -1,6 +1,7 @@
 " set leader
 let mapleader=";"
 
+set nocompatible
 """"""""""""""""""""""""""""""""
 " VIM user interface
 """"""""""""""""""""""""""""""""
@@ -9,12 +10,21 @@ set number
 
 " syntax highlight
 syntax enable
+syntax on
+
+set t_Co=256
 
 " show command at the bottom right
 set showcmd
 
 " show the position of cursor at the bottom right
 set ruler
+
+filetype on
+filetype plugin on
+
+" <ESC> time
+set ttimeoutlen=0
 
 """"""""""""""""""""""""""""""""
 " tab, indent
@@ -29,6 +39,10 @@ set shiftwidth=4
 " indent
 set autoindent
 set smartindent
+set cindent
+filetype indent on
+
+set nowrap
 
 """"""""""""""""""""""""""""""""
 " search
@@ -41,7 +55,7 @@ set hlsearch
 
 " ignore case while search
 set ignorecase
-set smartcase
+"set smartcase
 
 " cancel search results highlight
 map <leader><cr> :noh<cr>
