@@ -51,9 +51,9 @@ sh ./install.sh
 | ----- | ----- | ----  
 ||u|撤销
 ||control r|反撤销
-||(number) dd|删除number行，没有number表示删除一行
-||视图模式 d|删除选中区域
-||D|删除当前行到行尾
+||(number) dd|剪切number行，没有number表示剪切一行
+||视图模式 d|剪切选中区域
+||D|剪切当前行到行尾
 ||(number) yy|复制number行，没有number表示复制当前行
 ||视图模式 y|复制选中区域
 ||p|在当前行后粘贴
