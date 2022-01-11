@@ -71,8 +71,10 @@ sh ./install.sh
 ||control o|返回上一个文件
 |;n|:NERDTreeToggle|打开目录
 |;m|:TlistToggle|打开函数目录（需要安装ctags）
-|;bf|:buffers && :b number|查看打开过的buffer并跳转
-|control (h或j或k或l)|control W (hjkl)|打开多个窗口时移动光标
+|;bf|:buffers && :b number|查看打开过的buffer并跳转，不输入数字直接按回车不跳转
+|control (h或j或k或l)|control W (hjkl)|在多个窗口跳转
+||gt|跳转到下一个tab
+||gT|跳转到上一个tab
 |;a|:A|C/C++头(源)文件相互跳转，.vimrc中的g:alternateSearchPath为搜索路径
 |完善中|完善中|完善中
 
