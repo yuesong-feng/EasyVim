@@ -37,9 +37,9 @@ sh ./install.sh
 ||F char|光标移动到行内上一个char字符处
 |;h或;l|^或$|光标移动到行首(或行尾)
 |;k或;j|gg或G|光标移动到文件首(或文件尾)
-||controle或y|向下(上)滚动一行
-||controlf或b|向下(上)滚动整屏
-||controld或u|向下(上)滚动半屏
+||control e或y|向下(上)滚动一行
+||control f或b|向下(上)滚动整屏
+||control d或u|向下(上)滚动半屏
 ||/或?|正向(或反向)搜索，按n下一个，N上一个
 |;enter|:noh|取消搜索结果高亮
 
