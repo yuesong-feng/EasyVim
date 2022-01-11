@@ -11,6 +11,8 @@
 git clone https://github.com/yuesong-feng/EasyVim
 cd EasyVim/
 sh ./install.sh
+vim
+:PlugInstall
 ```
 需要安装[ctags](http://ctags.sourceforge.net)，才可以使用taglist插件寻找函数、宏、类等等的位置（上图右侧栏）。
 
