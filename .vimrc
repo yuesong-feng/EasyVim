@@ -125,4 +125,5 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'vim-scripts/a.vim'
 Plug 'preservim/tagbar'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-scripts/AutoComplPop'
 call plug#end()
