@@ -19,6 +19,8 @@ set cursorline           " 高亮显示当前行
 "set whichwrap+=<,>,h,l   " 设置光标键跨行
 set ttimeoutlen=0        " 设置<ESC>键响应时间
 set virtualedit=block,onemore   " 允许光标出现在最后一个字符的后面
+set wildmenu             " vim自身命名行模式智能补全
+set completeopt-=preview " 补全时不显示窗口，只显示补全列表
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 代码缩进和排版
@@ -39,20 +41,12 @@ set sidescroll=10        " 设置向右滚动字符数
 set nofoldenable         " 禁用折叠代码
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 代码补全
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set wildmenu             " vim自身命名行模式智能补全
-set completeopt-=preview " 补全时不显示窗口，只显示补全列表
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 搜索设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set hlsearch            " 高亮显示搜索结果
 set incsearch           " 开启实时搜索功能
 set ignorecase          " 搜索时大小写不敏感
 "set smartcase
-" 取消搜索结果高亮
-map <leader><cr> :noh<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 缓存设置
@@ -81,56 +75,41 @@ map <leader>k gg
 map <leader>j G
 map <Leader>q :q<CR>
 map <Leader>w :w<CR>
+map <leader>f <C-p>
+map <Leader>n :NERDTreeToggle<CR>
+map <leader>a :A<CR>
+map <leader>m :TagbarToggle<cr>
+map <leader><cr> :noh<cr>
+
 map <C-x> :m +1<cr>
 map <C-s> :m -2<cr>
 map <silent> <c-u> :call smooth_scroll#up(&scroll, 50, 2)<CR>
 map <silent> <c-d> :call smooth_scroll#down(&scroll, 50, 2)<CR>
 map <silent> <c-b> :call smooth_scroll#up(&scroll*2, 25, 2)<CR>
 map <silent> <c-f> :call smooth_scroll#down(&scroll*2, 25, 2)<CR>
+map <C-h> <C-W>h
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-l> <C-W>l
 
+map <Leader>bf :call SwitchBuffer()<CR>
 function! SwitchBuffer()
     " Start by listing existing buffers
     buffers
     let n = input('Switch to: ', '', 'buffer')
     execute 'buffer' n
 endfunction
-map <Leader>bf :call SwitchBuffer()<CR>
+
 
 """"""""""""""""""""""""""""""""
-" 跳转路径
+"跳转路径
 """"""""""""""""""""""""""""""""
 set path+=./include/    " gf命令跳转路径
 let g:alternateSearchPath = 'sfr:./include,sfr:..'  " C/C++头(源)文件跳转路径
-map <leader>a :A<CR>
 
 """"""""""""""""""""""""""""""""
-" nerdtree
+"插件及设置
 """"""""""""""""""""""""""""""""
-" open nerdtree
-map <Leader>n :NERDTreeToggle<CR>
-
-" control + hjkl to switch between windows
-map <C-h> <C-W>h
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-l> <C-W>l
-
-""""""""""""""""""""""""""""""""
-" vim-cpp-enhanced-highlight
-""""""""""""""""""""""""""""""""
-let g:cpp_posix_standard = 1
-
-""""""""""""""""""""""""""""""""
-" tagbar (require ctags)
-""""""""""""""""""""""""""""""""
-map <leader>m :TagbarToggle<cr>
-
-""""""""""""""""""""""""""""""""
-" Rainbow Parentheses Improved
-""""""""""""""""""""""""""""""""
-let g:rainbow_active = 1
-
-
 call plug#begin()
 Plug 'jiangmiao/auto-pairs'
 Plug 'preservim/nerdtree'
@@ -142,7 +121,11 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/AutoComplPop'
 Plug 'luochen1990/rainbow'
 Plug 'terryma/vim-smooth-scroll'
+Plug 'ryanoasis/vim-devicons'
+Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
-let g:airline#extensions#tabline#enabled = 1
-
+let g:cpp_posix_standard = 1
+let g:airline#extensions#tabline#enabled = 1 "显示上方buffer栏
+let NERDTreeShowHidden = 1      "显示隐藏文件
+let g:rainbow_active = 1        "彩虹括号

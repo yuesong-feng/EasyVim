@@ -46,6 +46,7 @@ vim
 ||control d或u|向下(上)滚动半屏
 ||/或?|正向(或反向)搜索，按n下一个，N上一个
 |;enter|:noh|取消搜索结果高亮
+|;f|control p|模糊搜索文件
 |完善中|完善中|完善中
 
 ## 编辑
@@ -73,6 +74,8 @@ vim
 ||control o|返回上一个文件
 |;n|:NERDTreeToggle|打开目录
 |;m|:TlistToggle|打开函数目录（需要安装ctags）
+|;bn|:bn|跳转到下一个buffer
+|;bp|:bp|跳转到上一个buffer
 |;bf|:buffers && :b number|查看打开过的buffer并跳转，不输入数字直接按回车不跳转
 |control (h或j或k或l)|control W (hjkl)|在多个窗口跳转
 ||gt|跳转到下一个tab
