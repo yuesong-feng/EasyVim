@@ -15,3 +15,4 @@ fi
 cp -r .vim ~/.vim
 
 echo "Finish install EasyVim!!!"
+echo "start vim and run :PlugInstall"

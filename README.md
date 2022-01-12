@@ -4,7 +4,7 @@
 配置还在不断打磨完善，欢迎推荐插件。
 
 ## example
-![EasyVim](./example.png)
+![EasyVim](./example.jpg)
 
 ## 安装
 ```bash
