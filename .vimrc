@@ -6,7 +6,7 @@ let mapleader = ";"      " 定义<leader>键
 set nocompatible         " 设置不兼容原始vi模式
 filetype on              " 设置开启文件类型侦测
 filetype plugin on       " 设置加载对应文件类型的插件
-"set noeb                 " 关闭错误的提示（没用）
+"set noeb                 " 关闭错误的提示
 syntax enable            " 开启语法高亮功能
 syntax on                " 自动语法高亮
 set t_Co=256             " 开启256色支持
@@ -16,7 +16,7 @@ set ruler                " 总是显示光标位置
 set laststatus=2         " 总是显示状态栏
 set number               " 开启行号显示
 set cursorline           " 高亮显示当前行
-"set whichwrap+=<,>,h,l   " 设置光标键跨行（没用）
+"set whichwrap+=<,>,h,l   " 设置光标键跨行
 set ttimeoutlen=0        " 设置<ESC>键响应时间
 set virtualedit=block,onemore   " 允许光标出现在最后一个字符的后面
 
@@ -51,7 +51,8 @@ set hlsearch            " 高亮显示搜索结果
 set incsearch           " 开启实时搜索功能
 set ignorecase          " 搜索时大小写不敏感
 "set smartcase
-map <leader><cr> :noh<cr>   " 取消搜索结果高亮
+" 取消搜索结果高亮
+map <leader><cr> :noh<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 缓存设置
@@ -74,18 +75,18 @@ set fileencodings=utf8,ucs-bom,gbk,cp936,gb2312,gb18030
 """"""""""""""""""""""""""""""""
 " 快捷键
 """"""""""""""""""""""""""""""""
-map <Leader>h ^     "光标移动到行首
-map <Leader>l $     "光标移动到行尾
-map <leader>k gg    "光标移动到文件首
-map <leader>j G     "光标移动到文件尾
-map <Leader>q :q<CR>    "退出
-map <Leader>w :w<CR>    "保存
-map <C-x> :m +1<cr>     "向下移动一行
-map <C-s> :m -2<cr>     "向上移动一行
+map <Leader>h ^
+map <Leader>l $
+map <leader>k gg
+map <leader>j G
+map <Leader>q :q<CR>
+map <Leader>w :w<CR>
+map <C-x> :m +1<cr>
+map <C-s> :m -2<cr>
 map <silent> <c-u> :call smooth_scroll#up(&scroll, 50, 2)<CR>
 map <silent> <c-d> :call smooth_scroll#down(&scroll, 50, 2)<CR>
-map <silent> <c-b> :call smooth_scroll#up(&scroll*2, 50, 2)<CR>
-map <silent> <c-f> :call smooth_scroll#down(&scroll*2, 50, 2)<CR>
+map <silent> <c-b> :call smooth_scroll#up(&scroll*2, 25, 2)<CR>
+map <silent> <c-f> :call smooth_scroll#down(&scroll*2, 25, 2)<CR>
 
 function! SwitchBuffer()
     " Start by listing existing buffers
@@ -93,14 +94,14 @@ function! SwitchBuffer()
     let n = input('Switch to: ', '', 'buffer')
     execute 'buffer' n
 endfunction
-map <Leader>bf :call SwitchBuffer()<CR> "查看并跳转buffers
+map <Leader>bf :call SwitchBuffer()<CR>
 
 """"""""""""""""""""""""""""""""
 " 跳转路径
 """"""""""""""""""""""""""""""""
 set path+=./include/    " gf命令跳转路径
 let g:alternateSearchPath = 'sfr:./include,sfr:..'  " C/C++头(源)文件跳转路径
-map <leader>a :A<CR>    " 跳转到头(源)文件
+map <leader>a :A<CR>
 
 """"""""""""""""""""""""""""""""
 " nerdtree
@@ -142,3 +143,6 @@ Plug 'vim-scripts/AutoComplPop'
 Plug 'luochen1990/rainbow'
 Plug 'terryma/vim-smooth-scroll'
 call plug#end()
+
+let g:airline#extensions#tabline#enabled = 1
+
