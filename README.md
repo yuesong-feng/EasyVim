@@ -18,6 +18,8 @@ vim
 
 需要安装任意一款[nerd](https://github.com/ryanoasis/nerd-fonts)字体，才可以看到好看的图标。推荐使用Ubuntu Mono Nerd Font
 
+今后将会写在install.sh脚本里。
+
 ## 模式
 | 快捷键 | 原指令 | 描述
 | ----- | ----- | ----  
