@@ -14,7 +14,7 @@ set t_Co=256             " 开启256色支持
 set showcmd              " 总是显示命令
 set ruler                " 总是显示光标位置
 set laststatus=2         " 总是显示状态栏
-set number               " 开启行号显示
+set rnu              " 开启相对行号显示
 set cursorline           " 高亮显示当前行
 "set whichwrap+=<,>,h,l   " 设置光标键跨行
 set ttimeoutlen=0        " 设置<ESC>键响应时间
@@ -80,6 +80,7 @@ map <Leader>n :NERDTreeToggle<CR>
 map <leader>a :A<CR>
 map <leader>m :TagbarToggle<cr>
 map <leader><cr> :noh<cr>
+map <leader>t :shell<cr>
 
 map <C-x> :m +1<cr>
 map <C-s> :m -2<cr>
@@ -92,6 +93,9 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-l> <C-W>l
 
+map <leader>bn :bn<cr>
+map <leader>bp :bp<cr>
+
 map <Leader>bf :call SwitchBuffer()<CR>
 function! SwitchBuffer()
     " Start by listing existing buffers
@@ -99,6 +103,7 @@ function! SwitchBuffer()
     let n = input('Switch to: ', '', 'buffer')
     execute 'buffer' n
 endfunction
+
 
 
 """"""""""""""""""""""""""""""""
@@ -118,14 +123,31 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'vim-scripts/a.vim'
 Plug 'preservim/tagbar'
 Plug 'vim-airline/vim-airline'
-Plug 'vim-scripts/AutoComplPop'
+"Plug 'vim-scripts/AutoComplPop'
 Plug 'luochen1990/rainbow'
 Plug 'terryma/vim-smooth-scroll'
 Plug 'ryanoasis/vim-devicons'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/async.vim'
 call plug#end()
 
 let g:cpp_posix_standard = 1
 let g:airline#extensions#tabline#enabled = 1 "显示上方buffer栏
 let NERDTreeShowHidden = 1      "显示隐藏文件
 let g:rainbow_active = 1        "彩虹括号
+let g:tagbar_width = 30
+
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+
+if executable('clangd')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'clangd',
+        \ 'cmd': {server_info->['clangd', '-background-index']},
+        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+        \ })
+endif
