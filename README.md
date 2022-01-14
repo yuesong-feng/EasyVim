@@ -18,6 +18,8 @@ vim
 
 需要安装任意一款[nerd](https://github.com/ryanoasis/nerd-fonts)字体，才可以看到好看的图标。推荐使用Ubuntu Mono Nerd Font
 
+需要安装clangd，才能使用C++代码补全。
+
 今后将会写在install.sh脚本里。
 
 ## 模式
