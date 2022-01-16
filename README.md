@@ -87,6 +87,8 @@ vim
 ||gt|跳转到下一个tab
 ||gT|跳转到上一个tab
 |;a|:A|C/C++头(源)文件相互跳转，.vimrc中的g:alternateSearchPath为搜索路径
+|;t|:shell|打开新终端，退出终端时将放回vim
+||control o|返回光标上一个所在位置
 |完善中|完善中|完善中
 
 ## 已安装插件
