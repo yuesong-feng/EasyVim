@@ -14,7 +14,7 @@ sh ./install.sh
 vim
 :PlugInstall
 ```
-需要安装[ctags](http://ctags.sourceforge.net)，才可以使用taglist插件寻找函数、宏、类等等的位置（上图右侧栏）。
+需要安装[ctags](http://ctags.sourceforge.net)，才可以使用tagbar插件寻找函数、宏、类等等的位置（上图右侧栏）。
 
 需要安装任意一款[nerd](https://github.com/ryanoasis/nerd-fonts)字体，才可以看到好看的图标。推荐使用Ubuntu Mono Nerd Font
 
