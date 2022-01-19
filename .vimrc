@@ -31,9 +31,9 @@ set cindent              " 设置使用C/C++语言的自动缩进方式
 set smartindent          " 智能的选择对其方式
 filetype indent on       " 自适应不同语言的智能缩进
 set expandtab            " 将制表符扩展为空格
-set tabstop=4            " 设置编辑时制表符占用空格数
-set shiftwidth=4         " 设置格式化时制表符占用空格数
-set softtabstop=4        " 设置4个空格为制表符
+set tabstop=2            " 设置编辑时制表符占用空格数
+set shiftwidth=2         " 设置格式化时制表符占用空格数
+set softtabstop=2        " 设置4个空格为制表符
 set smarttab             " 在行和段开始处使用制表符
 set nowrap               " 禁止折行
 set backspace=2          " 使用回车键正常处理indent,eol,start等
@@ -84,10 +84,10 @@ map <leader>t :shell<cr>
 
 map <C-x> :m +1<cr>
 map <C-s> :m -2<cr>
-map <silent> <c-u> :call smooth_scroll#up(&scroll, 50, 2)<CR>
-map <silent> <c-d> :call smooth_scroll#down(&scroll, 50, 2)<CR>
-map <silent> <c-b> :call smooth_scroll#up(&scroll*2, 25, 2)<CR>
-map <silent> <c-f> :call smooth_scroll#down(&scroll*2, 25, 2)<CR>
+map <c-u> :call smooth_scroll#up(&scroll, 20, 1)<CR>
+map <c-d> :call smooth_scroll#down(&scroll, 20, 1)<CR>
+map <c-b> :call smooth_scroll#up(&scroll*2, 10, 1)<CR>
+map <c-f> :call smooth_scroll#down(&scroll*2, 10, 1)<CR>
 map <C-h> <C-W>h
 map <C-j> <C-W>j
 map <C-k> <C-W>k
@@ -110,7 +110,7 @@ endfunction
 "跳转路径
 """"""""""""""""""""""""""""""""
 set path+=./include/    " gf命令跳转路径
-let g:alternateSearchPath = 'sfr:./include,sfr:..'  " C/C++头(源)文件跳转路径
+let g:alternateSearchPath = 'sfr:./include,sfr:..'  " C/C++头(源)文件跳转路径(;a命令)
 
 """"""""""""""""""""""""""""""""
 "插件及设置
@@ -129,9 +129,9 @@ Plug 'terryma/vim-smooth-scroll'
 Plug 'ryanoasis/vim-devicons'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'prabirshrestha/async.vim'
 call plug#end()
 
 let g:cpp_posix_standard = 1

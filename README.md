@@ -52,7 +52,7 @@ vim
 ||control d或u|向下(上)滚动半屏
 ||/或?|正向(或反向)搜索，按n下一个，N上一个
 |;enter|:noh|取消搜索结果高亮
-|;f|control p|模糊搜索文件
+|;f|control p|模糊搜索文件，回车跳转
 |完善中|完善中|完善中
 
 ## 编辑
@@ -62,6 +62,7 @@ vim
 ||control r|反撤销
 ||(number) dd|剪切number行，没有number表示剪切一行
 ||视图模式 d|剪切选中区域
+||dw|剪切当前单词到词尾
 ||D|剪切当前行到行尾
 ||(number) yy|复制number行，没有number表示复制当前行
 ||视图模式 y|复制选中区域
@@ -77,7 +78,6 @@ vim
 | 快捷键 | 原指令 | 描述
 | ----- | ----- | ----  
 ||gf|打开光标处的文件，.vimrc的path为搜索路径
-||control o|返回上一个文件
 |;n|:NERDTreeToggle|打开目录
 |;m|:TlistToggle|打开函数目录（需要安装ctags）
 |;bn|:bn|跳转到下一个buffer
@@ -87,8 +87,8 @@ vim
 ||gt|跳转到下一个tab
 ||gT|跳转到上一个tab
 |;a|:A|C/C++头(源)文件相互跳转，.vimrc中的g:alternateSearchPath为搜索路径
-|;t|:shell|打开新终端，退出终端时将放回vim
-||control o|返回光标上一个所在位置
+|;t|:shell|打开新终端，退出终端时将返回vim
+||control o|返回光标上一个所在位置，可返回上一个文件
 |完善中|完善中|完善中
 
 ## 已安装插件
