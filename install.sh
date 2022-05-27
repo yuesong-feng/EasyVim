@@ -12,7 +12,10 @@ cp .vimrc ~/.vimrc
 if [ -d ~/.vim ]; then
     rm -rf ~/.vim
 fi
-cp -r .vim ~/.vim
+# cp -r .vim ~/.vim
+
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 echo "Finish install EasyVim!!!"
 echo "start vim and run :PlugInstall"
