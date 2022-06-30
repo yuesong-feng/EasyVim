@@ -6,13 +6,14 @@ let mapleader = ";"      " 定义<leader>键
 set nocompatible         " 设置不兼容原始vi模式
 filetype on              " 设置开启文件类型侦测
 filetype plugin on       " 设置加载对应文件类型的插件
-"set noeb                 " 关闭错误的提示
+set noeb                 " 关闭错误的提示音
+set vb                   " 错误时屏幕闪烁
 syntax enable            " 开启语法高亮功能
 syntax on                " 自动语法高亮
 set t_Co=256             " 开启256色支持
 "set cmdheight=2          " 设置命令行的高度
-set showcmd              " 总是显示命令
-set ruler                " 总是显示光标位置
+set showcmd              " 右下角显示输入的命令
+set ruler                " 右下角显示光标位置
 set laststatus=2         " 总是显示状态栏
 set rnu              " 开启相对行号显示
 set cursorline           " 高亮显示当前行
@@ -20,8 +21,7 @@ set cursorline           " 高亮显示当前行
 set ttimeoutlen=0        " 设置<ESC>键响应时间
 set virtualedit=block,onemore   " 允许光标出现在最后一个字符的后面
 set wildmenu             " vim自身命名行模式智能补全
-set completeopt-=preview " 补全时不显示窗口，只显示补全列表
-
+set completeopt=preview,menu " vim自带的代码自动补全
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 代码缩进和排版
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
