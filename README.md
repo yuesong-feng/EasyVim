@@ -1,28 +1,25 @@
 # EasyVim
+
 简单易用的vim配置，熟练后可大大提高开发效率（VS Code的两倍以上）。
 
 配置还在不断打磨完善，欢迎推荐插件。
 
-## example
-![EasyVim](./example.jpg)
-
 ## 安装
+
+安装过程需要从github下载很多插件，国内尽量挂VPN
+
 ```bash
 git clone https://github.com/yuesong-feng/EasyVim
 cd EasyVim/
-sh ./install.sh
+sh ./install.sh 
 vim
 :PlugInstall
 ```
-需要安装[ctags](http://ctags.sourceforge.net)，才可以使用tagbar插件寻找函数、宏、类等等的位置（上图右侧栏）。
-
-需要安装任意一款[nerd](https://github.com/ryanoasis/nerd-fonts)字体，才可以看到好看的图标。推荐使用Ubuntu Mono Nerd Font
 
 需要安装clangd，才能使用C++代码补全。
 
-今后将会写在install.sh脚本里。
-
 ## 模式
+
 | 快捷键 | 原指令 | 描述
 | ----- | ----- | ----  
 ||esc|返回到命令模式
@@ -40,6 +37,7 @@ vim
 |完善中|完善中|完善中
 
 ## 光标与搜索(也可在可视模式进行选中)
+
 | 快捷键 | 原指令 | 描述
 | ----- | ----- | ----  
 ||(number) k或j或h或l|上下左右移动光标，前面加数字表示移动多少单位
@@ -52,10 +50,10 @@ vim
 ||control d或u|向下(上)滚动半屏
 ||/或?|正向(或反向)搜索，按n下一个，N上一个
 |;enter|:noh|取消搜索结果高亮
-|;f|control p|模糊搜索文件，回车跳转
 |完善中|完善中|完善中
 
 ## 编辑
+
 | 快捷键 | 原指令 | 描述
 | ----- | ----- | ----  
 ||u|撤销
@@ -68,28 +66,19 @@ vim
 ||视图模式 y|复制选中区域
 ||p|在当前行后粘贴
 ||P|在当前行前粘贴
-|control x|:m +1|将当前行向下移动
-|control s|:m -2|将当前行向上移动
 |;w|:w|保存
 |;q|:q|退出
 |完善中|完善中|完善中
 
 ## 窗口与跳转
+
 | 快捷键 | 原指令 | 描述
 | ----- | ----- | ----  
-||gf|打开光标处的文件，.vimrc的path为搜索路径
 |;n|:NERDTreeToggle|打开目录
-|;m|:TlistToggle|打开函数目录（需要安装ctags）
-|;bn|:bn|跳转到下一个buffer
-|;bp|:bp|跳转到上一个buffer
-|;bf|:buffers && :b number|查看打开过的buffer并跳转，不输入数字直接按回车不跳转
+|;b|:buffers && :b number|查看打开过的buffer并跳转，不输入数字直接按回车不跳转
 |control (h或j或k或l)|control W (hjkl)|在多个窗口跳转
 ||gt|跳转到下一个tab
 ||gT|跳转到上一个tab
-|;a|:A|C/C++头(源)文件相互跳转，.vimrc中的g:alternateSearchPath为搜索路径
 |;t|:shell|打开新终端，退出终端时将返回vim
 ||control o|返回光标上一个所在位置，可返回上一个文件
 |完善中|完善中|完善中
-
-## 已安装插件
-在`.vimrc`文件的注释中，有官网链接和配置
