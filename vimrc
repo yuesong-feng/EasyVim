@@ -1,43 +1,32 @@
 set nocompatible                    " 设置不兼容原始vi模式
 let mapleader = ";"                 " 定义<leader>键
-
-set noeb                            " 关闭错误的提示音
-set vb                              " 错误时屏幕闪烁
+filetype plugin indent on 					"检测文件类型，打开基于文件类型的插件和缩进
 syntax enable                       " 语法高亮
-set nu			                    " 显示行号
-set cursorline	                    " 高亮当前行
+set number
+set cursorline		            " 高亮当前行
+set noerrorbells visualbell " 关闭错误的提示音，错误时屏幕闪烁
 set showcmd                         " 右下角显示输入的命令
-set ruler                           " 右下角显示光标位置，显示了状态栏则会被状态栏覆盖
 set laststatus=2	                " 总是显示下方状态栏
 set statusline=[%f]%m%=row:%l/%L,col:%c     " 状态栏显示信息设置
 set nowrap                          " 行超过vim窗口时禁止折行
 set wildmenu									" 输入vim命令时，按Tab键在上方显示所有补全命令
-
-set virtualedit=block,onemore       " 允许光标出现在最后一个字符的后面
-set tabstop=2			            " tab的空格数
-set shiftwidth=2 		            " 使用>>和<<调整缩进的空格数
-set autoindent
-set smartindent
-set cindent
-
-set hlsearch			            " 高亮显示搜索结果
-set ignorecase			            " 搜索时大小写不敏感
-set incsearch                       " 一边输入搜索一边现实结果
-map <leader><cr> :noh<cr>           " 取消搜索结果高亮
-
+set smarttab tabstop=2 softtabstop=2 shiftwidth=2		            " 缩进的空格数
+set autoindent smartindent cindent
+set hlsearch ignorecase incsearch	smartcase		            " 搜索
+map <leader>/ :noh<cr> 
 map <Leader>h ^
 map <Leader>l $
-map <leader>k gg
-map <leader>j G
+map <leader>k <c-u>
+map <leader>j <c-d>
 map <Leader>q :q<CR>
 map <Leader>w :w<CR>
-map <leader>t :shell<cr>
+map <leader>s :shell<cr>
 map <Leader>n :NERDTreeToggle<CR>
+map <Leader>t :TagbarToggle<CR>
 map <C-h> <C-W>h
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-l> <C-W>l
-
 map <c-u> :call smooth_scroll#up(&scroll, 20, 1)<CR>
 map <c-d> :call smooth_scroll#down(&scroll, 20, 1)<CR>
 map <c-b> :call smooth_scroll#up(&scroll*2, 10, 1)<CR>
@@ -55,23 +44,24 @@ call plug#begin()
 	Plug 'preservim/nerdtree'
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'terryma/vim-smooth-scroll'
-	Plug 'luochen1990/rainbow'
-
+	Plug 'ctrlpvim/ctrlp.vim'
+	Plug 'morhetz/gruvbox'
+	Plug 'preservim/tagbar'
+	Plug 'preservim/nerdcommenter'
 	Plug 'prabirshrestha/vim-lsp'
 	Plug 'prabirshrestha/asyncomplete.vim'
 	Plug 'prabirshrestha/asyncomplete-lsp.vim'
-
 call plug#end()
 
-let NERDTreeShowHidden = 1      "显示隐藏文件
-let g:rainbow_active = 1        "彩虹括号
+autocmd vimenter * ++nested colorscheme gruvbox
+set background=dark
 
-" asyncomplete.vim
+let NERDTreeShowHidden = 1      "显示隐藏文件
+
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
 
-" vim-lsp: register
 if executable('clangd')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'clangd',
@@ -79,11 +69,6 @@ if executable('clangd')
         \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
         \ })
 endif
-
-if executable('pyls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
-        \ 'whitelist': ['python'],
-        \ })
-endif
+set path+=./src						" C/C++头文件跳转(gf)目录
+set path+=./src/include
+set path+=/Users/yuesong/Desktop/postgresql-9.6.24/src/include
