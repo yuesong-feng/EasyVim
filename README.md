@@ -83,8 +83,11 @@ vim
 | 快捷键 | 原指令 | 描述
 | ----- | ----- | ----  
 |;n|:NERDTreeToggle|打开目录
-|;b|:buffers && :b number|查看打开过的buffer并跳转，不输入数字直接按回车不跳转
 |control (h或j或k或l)|control W (hjkl)|在多个窗口跳转
+||;[1-9]|转到第n个buffer
+|Tab||下一个buffer
+|Shift+Tab||上一个buffer
+||:bd|关闭当前buffer
 ||gt|跳转到下一个tab
 ||gT|跳转到上一个tab
 |;s|:shell|打开新终端，退出终端时将返回vim
