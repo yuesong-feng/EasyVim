@@ -18,8 +18,9 @@ map <leader>j <c-d>
 map <Leader>q :q<CR>
 map <Leader>w :w<CR>
 map <leader>s :shell<cr>
+map <leader>b :bd<cr>
 map <Leader>n :NERDTreeToggle<CR>
-"map <Leader>t :TagbarToggle<CR>
+map <Leader>t :TagbarToggle<CR>
 map <C-h> <C-W>h
 map <C-j> <C-W>j
 map <C-k> <C-W>k
@@ -31,7 +32,7 @@ map <c-f> :call smooth_scroll#down(&scroll*2, 10, 1)<CR>
 
 call plug#begin()
 	Plug 'preservim/nerdtree'
-	"Plug 'preservim/tagbar'
+	Plug 'preservim/tagbar'
 	Plug 'preservim/nerdcommenter'
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'terryma/vim-smooth-scroll'
@@ -85,3 +86,4 @@ endif
 
 set path+=./src						" C/C++头文件跳转(gf)目录
 set path+=./src/include
+
