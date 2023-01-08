@@ -42,17 +42,13 @@ call plug#begin()
 	Plug 'ludovicchabant/vim-gutentags'
 
 	Plug 'dense-analysis/ale'
-	" Plug 'prabirshrestha/vim-lsp'
-	" Plug 'prabirshrestha/asyncomplete.vim'
-	" Plug 'prabirshrestha/asyncomplete-lsp.vim'
-	" Plug 'rhysd/vim-lsp-ale'
 call plug#end()
 
 " Plug 'morhetz/gruvbox'
 autocmd vimenter * ++nested colorscheme gruvbox
 
 " Plug 'vim-airline/vim-airline'
-let g:airline#extensions#tabline#enabled = 1 "show tabline
+let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 nmap <leader>1 <Plug>AirlineSelectTab1
 nmap <leader>2 <Plug>AirlineSelectTab2
@@ -98,6 +94,14 @@ let g:gutentags_cache_dir="~/.cache/tags"
 
 " Plug 'dense-analysis/ale'
 let g:ale_completion_enabled = 1
-map <leader>g :ALEGoToDefinition<cr>
-map <leader>f :ALEFindReferences<cr>
-map <leader>s :ALESymbolSearch 
+let g:ale_floating_preview = 1
+nmap <leader>g :ALEGoToDefinition<cr>
+nmap <leader>s :ALESymbolSearch 
+nmap <leader>f :ALEFindReferences<cr>
+nmap <leader>i :ALEGoToImplementation<cr>
+nmap <leader>rn :ALERename<cr>
+nmap <space> :ALEHover<cr>
+set completeopt=menu,menuone,popup,noselect,noinsert
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? "\<C-o>" : "\<cr>"
