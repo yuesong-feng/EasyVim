@@ -52,7 +52,7 @@ vim
 ||/或?|正向(或反向)搜索，输入回车重复上一次搜索
 ||n或N|下一个(或上一个)搜索结果
 |;/|:noh|取消搜索结果高亮
-||control p|模糊搜索文件，需要ctrlp.vim插件
+||control p|模糊搜索当前目录下的文件
 
 ## 编辑
 
@@ -65,12 +65,14 @@ vim
 ||(number) dd|剪切number行，没有number表示剪切一行
 ||视图模式 d|剪切选中区域
 ||dw/de或db|剪切当前单词到词尾或词首
+||di任意大中小括号|剪切括号内的内容
 ||D|剪切当前行到行尾
 ||J|删除当前行尾的换行符
 ||(number) yy|复制number行，没有number表示复制当前行
 ||视图模式 y|复制选中区域
 ||p|在当前位置后粘贴
 ||P|在当前位置前粘贴
+||(视图模式);c space|注释/反注释当前行或选中行
 |;w|:w|保存
 |;q|:q|退出
 
@@ -95,8 +97,8 @@ vim
 
 | 快捷键 | 原指令 | 描述
 | ----- | ----- | ----  
-||control ]|跳转到定义，需要ctag文件
-|;g|:ALEGoToDefinition|跳转到定义，使用LSP
+||control ]|跳转到定义，需要ctag生成tags文件
+|;g|:ALEGoToDefinition|跳转到定义，需要LSP
 |;f|:ALEFindReferences|
 |;s|:ALESymbolSearch|
 |;i|:ALEGoToImplementation|
