@@ -16,8 +16,6 @@ vim
 :PlugInstall
 ```
 
-需要安装clangd，才能使用C++代码补全。
-
 ## 模式
 
 | 快捷键 | 原指令 | 描述
@@ -34,7 +32,6 @@ vim
 ||v|进入可视模式
 ||V|进入可视行模式，此时会整行选中
 ||control v|进入可视块模式，此时会竖行部分选中
-|完善中|完善中|完善中
 
 ## 光标与搜索(也可在可视模式进行选中)
 
@@ -56,7 +53,6 @@ vim
 ||n或N|下一个(或上一个)搜索结果
 |;/|:noh|取消搜索结果高亮
 ||control p|模糊搜索文件，需要ctrlp.vim插件
-|完善中|完善中|完善中
 
 ## 编辑
 
@@ -64,10 +60,11 @@ vim
 | ----- | ----- | ----  
 ||u|撤销
 ||control r|反撤销
+||x|删除当前字符
 ||(number) r char|替换(number个)为char
 ||(number) dd|剪切number行，没有number表示剪切一行
 ||视图模式 d|剪切选中区域
-||dw或db|剪切当前单词到词尾或词首
+||dw/de或db|剪切当前单词到词尾或词首
 ||D|剪切当前行到行尾
 ||J|删除当前行尾的换行符
 ||(number) yy|复制number行，没有number表示复制当前行
@@ -76,21 +73,31 @@ vim
 ||P|在当前位置前粘贴
 |;w|:w|保存
 |;q|:q|退出
-|完善中|完善中|完善中
 
 ## 窗口与跳转
 
 | 快捷键 | 原指令 | 描述
 | ----- | ----- | ----  
 |;n|:NERDTreeToggle|打开目录
-|control (h或j或k或l)|control W (hjkl)|在多个窗口跳转
+|;m|:TagbarToggle|打开tag列表
+|control (h或j或k或l)|control w (hjkl)|在多个窗口跳转
+||control w o|仅保留当前窗口
 ||;[1-9]|转到第n个buffer
 |Tab||下一个buffer
 |Shift+Tab||上一个buffer
-||:bd|关闭当前buffer
+|;b|:bd|关闭当前buffer
 ||gt|跳转到下一个tab
 ||gT|跳转到上一个tab
-|;s|:shell|打开新终端，退出终端时将返回vim
+|;t|:shell|打开新终端，退出终端时将返回vim
 ||control o或i|返回光标上一个/下一个所在位置
-||control ]|C语言跳转到当前的定义，需要ctag文件
+
+## C/C++、LSP、代码提示补全等
+
+||control ]|跳转到定义，需要ctag文件
+|;g|:ALEGoToDefinition|跳转到定义，使用LSP
+|;f|:ALEFindReferences|
+|;s|:ALESymbolSearch|
+|;i|:ALEGoToImplementation|
+|;rn|:ALERename|
 |完善中|完善中|完善中
+
