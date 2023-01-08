@@ -82,7 +82,7 @@ vim
 |;m|:TagbarToggle|打开tag列表
 |control (h或j或k或l)|control w (hjkl)|在多个窗口跳转
 ||control w o|仅保留当前窗口
-||;[1-9]|转到第n个buffer
+|;[1-9]||转到第n个buffer
 |Tab||下一个buffer
 |Shift+Tab||上一个buffer
 |;b|:bd|关闭当前buffer
