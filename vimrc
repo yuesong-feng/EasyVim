@@ -18,10 +18,13 @@ map <leader>j <c-d>
 map <Leader>q :q<CR>
 map <Leader>w :w<CR>
 map <leader>b :bd<cr>
+map <leader>t :shell<cr>
 map <C-h> <C-W>h
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-l> <C-W>l
+" gf命令文件跳转路径
+set path+=~/Desktop/postgresql-15.1/src/include
 
 call plug#begin()
 	Plug 'morhetz/gruvbox'
@@ -39,10 +42,10 @@ call plug#begin()
 	Plug 'ludovicchabant/vim-gutentags'
 
 	Plug 'dense-analysis/ale'
-	"Plug 'prabirshrestha/vim-lsp'
-	"Plug 'prabirshrestha/asyncomplete.vim'
-	"Plug 'prabirshrestha/asyncomplete-lsp.vim'
-	"Plug 'rhysd/vim-lsp-ale'
+	" Plug 'prabirshrestha/vim-lsp'
+	" Plug 'prabirshrestha/asyncomplete.vim'
+	" Plug 'prabirshrestha/asyncomplete-lsp.vim'
+	" Plug 'rhysd/vim-lsp-ale'
 call plug#end()
 
 " Plug 'morhetz/gruvbox'
@@ -88,14 +91,13 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " Plug 'preservim/tagbar'
-map <leader>t :TagbarToggle<cr>
+map <leader>m :TagbarToggle<cr>
 
 " Plug 'ludovicchabant/vim-gutentags'
 let g:gutentags_cache_dir="~/.cache/tags"
 
 " Plug 'dense-analysis/ale'
 let g:ale_completion_enabled = 1
-let g:airline#extensions#ale#enabled = 1
 map <leader>g :ALEGoToDefinition<cr>
 map <leader>f :ALEFindReferences<cr>
 map <leader>s :ALESymbolSearch 
