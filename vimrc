@@ -33,6 +33,7 @@ map <c-f> :call smooth_scroll#down(&scroll*2, 10, 1)<CR>
 call plug#begin()
 	Plug 'preservim/nerdtree'
 	Plug 'preservim/tagbar'
+	Plug 'ludovicchabant/vim-gutentags'
 	Plug 'preservim/nerdcommenter'
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'terryma/vim-smooth-scroll'
@@ -45,7 +46,6 @@ call plug#begin()
 call plug#end()
 
 autocmd vimenter * ++nested colorscheme gruvbox
-set background=dark
 
 let NERDTreeShowHidden = 1      "显示隐藏文件
 
@@ -68,22 +68,29 @@ inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
 
-if executable('clangd')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'clangd',
-        \ 'cmd': {server_info->['clangd', '-background-index']},
-        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
-        \ })
+" C/C++头文件跳转(gf)目录
+set path+=~/Desktop/postgresql-15.1/src/include
+
+if match(getcwd(), "/pgsql") >=0 ||  match(getcwd(), "/postgresql") >= 0
+  set cinoptions=(0
+  set tabstop=4
+  set shiftwidth=4
+  set colorcolumn=80
+  highlight ColorColumn ctermbg=52
 endif
 
-if executable('rust-analyzer')
-  au User lsp_setup call lsp#register_server({
-        \   'name': 'Rust Language Server',
-        \   'cmd': {server_info->['rust-analyzer']},
-        \   'whitelist': ['rust'],
-        \ })
-endif
+"if executable('clangd')
+    "au User lsp_setup call lsp#register_server({
+        "\ 'name': 'clangd',
+        "\ 'cmd': {server_info->['clangd', '-background-index']},
+        "\ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+        "\ })
+"endif
 
-set path+=./src						" C/C++头文件跳转(gf)目录
-set path+=./src/include
-
+"if executable('rust-analyzer')
+  "au User lsp_setup call lsp#register_server({
+        "\   'name': 'Rust Language Server',
+        "\   'cmd': {server_info->['rust-analyzer']},
+        "\   'whitelist': ['rust'],
+        "\ })
+"endif
