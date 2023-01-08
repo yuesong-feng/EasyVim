@@ -100,7 +100,7 @@ vim
 |;f|:ALEFindReferences|
 |;s|:ALESymbolSearch|
 |;i|:ALEGoToImplementation|
-|;<space>|:ALEHover|
+|;space|:ALEHover|
 |;rn|:ALERename|
 |完善中|完善中|完善中
 
