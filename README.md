@@ -93,6 +93,8 @@ vim
 
 ## C/C++、LSP、代码提示补全等
 
+| 快捷键 | 原指令 | 描述
+| ----- | ----- | ----  
 ||control ]|跳转到定义，需要ctag文件
 |;g|:ALEGoToDefinition|跳转到定义，使用LSP
 |;f|:ALEFindReferences|
