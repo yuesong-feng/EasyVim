@@ -19,7 +19,7 @@ map <leader>j <c-d>
 map <Leader>q :q<CR>
 map <Leader>w :w<CR>
 map <leader>b :bd<cr>
-map <leader>t :shell<cr>
+map <leader>t :terminal<cr>
 map <C-h> <C-W>h
 map <C-j> <C-W>j
 map <C-k> <C-W>k
@@ -79,7 +79,9 @@ map <c-f> :call smooth_scroll#down(&scroll*2, 10, 1)<CR>
 " Plug 'jiangmiao/auto-pairs'
 
 " Plug 'preservim/nerdcommenter'
-let g:NERDSpaceDelims = 1
+let NERDSpaceDelims = 1
+let NERDCreateDefaultMappings = 0
+map <leader>c <plug>NERDCommenterToggle
 
 " Plug 'junegunn/vim-easy-align'
 " Start interactive EasyAlign in visual mode (e.g. vipga)
