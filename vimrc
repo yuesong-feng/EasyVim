@@ -11,15 +11,15 @@ set wildmenu                                      " 输入vim命令时，按Tab�
 set smarttab tabstop=2 softtabstop=2 shiftwidth=2 " 缩进的空格数
 set autoindent smartindent cindent								" 自动缩进设置
 set hlsearch ignorecase incsearch	smartcase       " 搜索
-map <leader>/ :noh<cr> 
+map <Leader>/ :noh<CR> 
 map <Leader>h ^
 map <Leader>l $
-map <leader>k <c-u>
-map <leader>j <c-d>
+map <Leader>k <C-U>
+map <Leader>j <C-D>
 map <Leader>q :q<CR>
 map <Leader>w :w<CR>
-map <leader>b :bd<cr>
-map <leader>t :terminal<cr>
+map <Leader>b :bd<CR>
+map <Leader>t :terminal<CR>
 map <C-h> <C-W>h
 map <C-j> <C-W>j
 map <C-k> <C-W>k
@@ -69,10 +69,10 @@ let NERDTreeShowHidden = 1      "显示隐藏文件
 map <Leader>n :NERDTreeToggle<CR>
 
 " Plug 'terryma/vim-smooth-scroll'
-map <c-u> :call smooth_scroll#up(&scroll, 20, 1)<CR>
-map <c-d> :call smooth_scroll#down(&scroll, 20, 1)<CR>
-map <c-b> :call smooth_scroll#up(&scroll*2, 10, 1)<CR>
-map <c-f> :call smooth_scroll#down(&scroll*2, 10, 1)<CR>
+map <C-U> :call smooth_scroll#up(&scroll, 20, 1)<CR>
+map <C-D> :call smooth_scroll#down(&scroll, 20, 1)<CR>
+map <C-B> :call smooth_scroll#up(&scroll*2, 10, 1)<CR>
+map <C-F> :call smooth_scroll#down(&scroll*2, 10, 1)<CR>
 
 " Plug 'ctrlpvim/ctrlp.vim'
 
@@ -90,7 +90,7 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " Plug 'preservim/tagbar'
-map <leader>m :TagbarToggle<cr>
+map <leader>m :TagbarToggle<CR>
 
 " Plug 'ludovicchabant/vim-gutentags'
 let g:gutentags_cache_dir="~/.cache/tags"
@@ -98,13 +98,12 @@ let g:gutentags_cache_dir="~/.cache/tags"
 " Plug 'dense-analysis/ale'
 let g:ale_completion_enabled = 1
 let g:ale_floating_preview = 1
-nmap <leader>g :ALEGoToDefinition<cr>
-nmap <leader>s :ALESymbolSearch 
-nmap <leader>f :ALEFindReferences<cr>
-nmap <leader>i :ALEGoToImplementation<cr>
-nmap <leader>rn :ALERename<cr>
-nmap <space> :ALEHover<cr>
+nmap <Leader>g :ALEGoToDefinition<CR>
+nmap <Leader>s :ALESymbolSearch 
+nmap <Leader>f :ALEFindReferences<CR>
+nmap <Leader>rn :ALERename<CR>
+nmap <space> :ALEHover<CR>
 set completeopt=menu,menuone,popup,noselect,noinsert
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr>    pumvisible() ? "\<C-o>" : "\<cr>"
+inoremap <expr> <CR>    pumvisible() ? "\<C-o>" : "\<CR>"
