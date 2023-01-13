@@ -19,7 +19,7 @@ map <Leader>j <C-D>
 map <Leader>q :q<CR>
 map <Leader>w :w<CR>
 map <Leader>b :bd<CR>
-map <Leader>t :terminal<CR>
+map <Leader>t :terminal<CR><C-W>J<C-W>10-
 map <C-h> <C-W>h
 map <C-j> <C-W>j
 map <C-k> <C-W>k
