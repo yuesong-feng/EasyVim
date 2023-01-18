@@ -1,24 +1,26 @@
 set nocompatible                                  " 设置不兼容原始vi模式
 let mapleader = ";"                               " 定义<leader>键
 filetype plugin indent on                         " 检测文件类型，打开基于文件类型的插件和缩进
-syntax enable                                     " 语法高亮
-set noerrorbells visualbell												" 禁止错误提示音
+syntax enable                                     " 语法高亮，不覆盖自定义设置
+set noerrorbells visualbell                       " 禁止错误提示音
 set number                                        " 显示行号
 set cursorline                                    " 高亮当前行
 set showcmd                                       " 右下角显示输入的命令
 set nowrap                                        " 行超过vim窗口时禁止折行
 set wildmenu                                      " 输入vim命令时，按Tab键在上方显示所有补全命令
 set smarttab tabstop=2 softtabstop=2 shiftwidth=2 " 缩进的空格数
-set autoindent smartindent cindent								" 自动缩进设置
-set hlsearch ignorecase incsearch	smartcase       " 搜索
-map <Leader>/ :noh<CR> 
+set autoindent smartindent cindent                " 自动缩进设置
+set hlsearch ignorecase incsearch	smartcase       " 搜索相关设置
+map <Leader>/ :noh<CR>
 map <Leader>h ^
 map <Leader>l $
 map <Leader>k <C-U>
 map <Leader>j <C-D>
 map <Leader>q :q<CR>
 map <Leader>w :w<CR>
-map <Leader>b :bd<CR>
+map <Leader>bd :bd<CR>
+map <Leader>bn :bn<CR>
+map <Leader>bp :bp<CR>
 map <Leader>t :terminal<CR><C-W>J<C-W>10-
 map <C-h> <C-W>h
 map <C-j> <C-W>j
@@ -69,10 +71,10 @@ let NERDTreeShowHidden = 1      "显示隐藏文件
 map <Leader>n :NERDTreeToggle<CR>
 
 " Plug 'terryma/vim-smooth-scroll'
-map <C-U> :call smooth_scroll#up(&scroll, 20, 1)<CR>
-map <C-D> :call smooth_scroll#down(&scroll, 20, 1)<CR>
-map <C-B> :call smooth_scroll#up(&scroll*2, 10, 1)<CR>
-map <C-F> :call smooth_scroll#down(&scroll*2, 10, 1)<CR>
+map <C-U> :call smooth_scroll#up(&scroll, 10, 1)<CR>
+map <C-D> :call smooth_scroll#down(&scroll, 10, 1)<CR>
+map <C-B> :call smooth_scroll#up(&scroll*2, 5, 1)<CR>
+map <C-F> :call smooth_scroll#down(&scroll*2, 5, 1)<CR>
 
 " Plug 'ctrlpvim/ctrlp.vim'
 
@@ -81,7 +83,7 @@ map <C-F> :call smooth_scroll#down(&scroll*2, 10, 1)<CR>
 " Plug 'preservim/nerdcommenter'
 let NERDSpaceDelims = 1
 let NERDCreateDefaultMappings = 0
-map <leader>c <plug>NERDCommenterToggle
+map <Leader>c <plug>NERDCommenterToggle
 
 " Plug 'junegunn/vim-easy-align'
 " Start interactive EasyAlign in visual mode (e.g. vipga)

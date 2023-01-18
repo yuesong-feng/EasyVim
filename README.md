@@ -102,9 +102,9 @@ tagbar显示和CTRL-]跳转需要安装ctags程序，推荐universal-ctags
 | ;n                | :NERDTreeToggle                  | 打开目录
 | ;m                | :TagbarToggle                    | 打开tag列表
 | ;[1-9]            |                                  | 转到第n个buffer
-| Tab               |                                  | 下一个buffer
-| S-Tab             |                                  | 上一个buffer
-| ;b                | :bd                              | 关闭当前buffer
+| Tab或;bn          | :bn                              | 下一个buffer
+| S-Tab或;bp        | :np                              | 上一个buffer
+| ;bd               | :bd                              | 关闭当前buffer
 |                   | gt                               | 跳转到下一个tab
 |                   | gT                               | 跳转到上一个tab
 | ;t                | :terminal                        | 打开新终端，在终端中使用CTRL-W使用vim窗口控制
@@ -126,7 +126,7 @@ tagbar显示和CTRL-]跳转需要安装ctags程序，推荐universal-ctags
 | ;g                | :ALEGoToDefinition               | 跳转到定义，需要LSP
 | ;f                | :ALEFindReferences               | 查找引用出现的地方
 | ;s                | :ALESymbolSearch                 | 查找系统符号
-| ;space            | :ALEHover                        | 显示详细信息
+| space             | :ALEHover                        | 显示详细信息
 | ;rn               | :ALERename                       | 重命名
 | 完善中            | 完善中                           | 完善中
 
