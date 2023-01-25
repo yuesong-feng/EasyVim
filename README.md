@@ -152,24 +152,26 @@ tagbar显示和CTRL-]跳转需要安装ctags程序，推荐universal-ctags
 
 ## 窗口与跳转
 
-|                   | CTRL-O或CTRL-I                   | 返回光标上一个/下一个所在位置
-| ;n                | :NERDTreeToggle                  | 打开目录
-| ;m                | :TagbarToggle                    | 打开tag列表
-| ;[1-9]            |                                  | 转到第n个buffer
-| Tab或;bn          | :bn                              | 下一个buffer
-| S-Tab或;bp        | :np                              | 上一个buffer
-| ;bd               | :bd                              | 关闭当前buffer
-|                   | gt                               | 跳转到下一个tab
-|                   | gT                               | 跳转到上一个tab
-| ;t                | :terminal                        | 打开新终端，在终端中使用CTRL-W使用vim窗口控制
-| CTRL {h或j或k或l} | CTRL-W {h/j/k/l}                 | 在多个窗口跳转
-|                   | CTRL-W {h/j/k/l}                 | 将当前窗口移动到某一方向
-|                   | CTRL-W o                         | 仅保留当前窗口，关闭其他所有窗口
-|                   | CTRL-W =                         | 将所有窗口的高度宽度设置为与当前窗口一样
-|                   | CTRL-W [n]+或-                   | 增加或减少[n]单位的当前窗口高度
-|                   | CTRL-W _                         | 将当前窗口的高度设置为尽可能最高
-|                   | CTRL-W [n]<或>                   | 增加或减少[n]单位的当前窗口宽度
-|                   | CTRL-W \|												 | 将当前窗口的宽度设置为尽可能最宽
+| 快捷键            | 指令             | 描述
+| -----             | -----            | ----
+|                   | CTRL-O或CTRL-I   | 返回光标上一个/下一个所在位置
+| ;n                | :NERDTreeToggle  | 打开目录
+| ;m                | :TagbarToggle    | 打开tag列表
+| ;[1-9]            |                  | 转到第n个buffer
+| Tab或;bn          | :bn              | 下一个buffer
+| S-Tab或;bp        | :np              | 上一个buffer
+| ;bd               | :bd              | 关闭当前buffer
+|                   | gt               | 跳转到下一个tab
+|                   | gT               | 跳转到上一个tab
+| ;t                | :terminal        | 打开新终端，在终端中使用CTRL-W使用vim窗口控制
+| CTRL {h或j或k或l} | CTRL-W {h/j/k/l} | 在多个窗口跳转
+|                   | CTRL-W {h/j/k/l} | 将当前窗口移动到某一方向
+|                   | CTRL-W o         | 仅保留当前窗口，关闭其他所有窗口
+|                   | CTRL-W =         | 将所有窗口的高度宽度设置为与当前窗口一样
+|                   | CTRL-W [n]+或-   | 增加或减少[n]单位的当前窗口高度
+|                   | CTRL-W _         | 将当前窗口的高度设置为尽可能最高
+|                   | CTRL-W [n]<或>   | 增加或减少[n]单位的当前窗口宽度
+|                   | CTRL-W \         |  | 将当前窗口的宽度设置为尽可能最宽
 
 ## C/C++、LSP、代码提示补全等
 
