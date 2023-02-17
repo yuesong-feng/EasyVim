@@ -27,7 +27,8 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-l> <C-W>l
 " gf命令文件跳转路径
-set path+=~/Desktop/postgresql-15.1/src/include
+set path+=~/Desktop/postgresql-15.2/src/include
+set path+=/Library/Developer/CommandLineTools/usr/include/c++/v1
 
 call plug#begin()
 	Plug 'morhetz/gruvbox'
@@ -43,8 +44,9 @@ call plug#begin()
 	
 	Plug 'preservim/tagbar'
 	Plug 'ludovicchabant/vim-gutentags'
+	Plug 'skywind3000/gutentags_plus'
 
-	Plug 'dense-analysis/ale'
+	" Plug 'dense-analysis/ale'
 call plug#end()
 
 " Plug 'morhetz/gruvbox'
@@ -95,17 +97,33 @@ nmap ga <Plug>(EasyAlign)
 map <leader>m :TagbarToggle<CR>
 
 " Plug 'ludovicchabant/vim-gutentags'
-let g:gutentags_cache_dir="~/.cache/tags"
+let g:gutentags_cache_dir = "~/.cache/tags"
+let g:gutentags_modules = ['ctags', 'gtags_cscope']
+
+" Plug 'skywind3000/gutentags_plus'
+let g:gutentags_plus_switch = 1 " change focus to quickfix window after search (optional).
+let g:gutentags_plus_nomap = 1
+noremap <silent> <leader>fs :GscopeFind s <C-R><C-W><cr>
+noremap <silent> <leader>fg :GscopeFind g <C-R><C-W><cr>
+noremap <silent> <leader>fc :GscopeFind c <C-R><C-W><cr>
+noremap <silent> <leader>ft :GscopeFind t <C-R><C-W><cr>
+noremap <silent> <leader>fe :GscopeFind e <C-R><C-W><cr>
+noremap <silent> <leader>ff :GscopeFind f <C-R>=expand("<cfile>")<cr><cr>
+noremap <silent> <leader>fi :GscopeFind i <C-R>=expand("<cfile>")<cr><cr>
+noremap <silent> <leader>fd :GscopeFind d <C-R><C-W><cr>
+noremap <silent> <leader>fa :GscopeFind a <C-R><C-W><cr>
+noremap <silent> <leader>fz :GscopeFind z <C-R><C-W><cr>
 
 " Plug 'dense-analysis/ale'
-let g:ale_completion_enabled = 1
-let g:ale_floating_preview = 1
-nmap <Leader>g :ALEGoToDefinition<CR>
-nmap <Leader>s :ALESymbolSearch 
-nmap <Leader>f :ALEFindReferences<CR>
-nmap <Leader>rn :ALERename<CR>
-nmap <space> :ALEHover<CR>
-set completeopt=menu,menuone,popup,noselect,noinsert
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <CR>    pumvisible() ? "\<C-o>" : "\<CR>"
+" let g:ale_completion_enabled = 1
+" let g:ale_floating_preview = 1
+" nmap <Leader>g :ALEGoToDefinition<CR>
+" nmap <Leader>s :ALESymbolSearch 
+" nmap <Leader>f :ALEFindReferences<CR>
+" nmap <Leader>rn :ALERename<CR>
+" nmap <space> :ALEHover<CR>
+" set completeopt=menu,menuone,popup,noselect,noinsert
+" inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" inoremap <expr> <CR>    pumvisible() ? "\<C-o>" : "\<CR>"
+
