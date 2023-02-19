@@ -79,6 +79,7 @@ map <C-B> :call smooth_scroll#up(&scroll*2, 5, 1)<CR>
 map <C-F> :call smooth_scroll#down(&scroll*2, 5, 1)<CR>
 
 " Plug 'ctrlpvim/ctrlp.vim'
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 " Plug 'jiangmiao/auto-pairs'
 
@@ -102,6 +103,7 @@ let g:gutentags_modules = ['ctags', 'gtags_cscope']
 
 " Plug 'skywind3000/gutentags_plus'
 let g:gutentags_plus_switch = 1 " change focus to quickfix window after search (optional).
+let g:gutentags_plus_height = 10
 let g:gutentags_plus_nomap = 1
 noremap <silent> <leader>fs :GscopeFind s <C-R><C-W><cr>
 noremap <silent> <leader>fg :GscopeFind g <C-R><C-W><cr>
