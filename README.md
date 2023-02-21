@@ -19,8 +19,6 @@ vim
 tagbar显示和CTRL-]跳转需要安装ctags
 C/C++查找相关功能需要安装gtags
 
-写程序时，ALE相关功能建议安装LSP，C/C++推荐clangd
-
 ## 模式
 
 | 快捷键            | 原指令                           | 描述
@@ -53,8 +51,8 @@ C/C++查找相关功能需要安装gtags
 | ;h     | ^                          | 移动到行首第一个非空白字符
 | ;l     | $                          | 移动到行尾
 |        | 0                          | 移动到行首
-|        | (或)                       | 向前(后)移动一个句子(标点符号分割)
-|        | {或}                       | 向前(后)移动一个段落(空行分割)
+|        | [n](或)                    | 向前(后)移动一个(n个)句子(标点符号分割)
+|        | [n]{或}                    | 向前(后)移动一个(n个)段落(空行分割)
 |        | +或\<enter\>               | 移动到下一行的首个非空字符
 |        | -                          | 移动到上一行的首个非空字符
 |        | gg或G                      | 移动到文件首(或文件尾)
@@ -82,6 +80,7 @@ C/C++查找相关功能需要安装gtags
 |        | /或?       | 正向(或反向)搜索，输入回车重复上一次搜索
 |        | n或N       | 下一个(或上一个)搜索结果
 |        | *或#       | 向后(前)搜索当前光标下的单词
+|        | gd         | 搜索当前光标下的单词
 | ;/     | :noh       | 取消搜索结果高亮
 |        | CTRL-P     | 模糊搜索当前目录下的文件
 
@@ -122,8 +121,7 @@ C/C++查找相关功能需要安装gtags
 |        | {或}              | 向前(后)一个段落(空行分割)
 |        | gg或G             | 移动到文件首(或文件尾)
 |        | {n}gg或{n}G或:{n} | 移动到第n行
-|        | tx                | 光标位置到字符 x 之前
-|        | fx                | 光标位置到字符 x 之处
+|        | f{char}或t{char}  | 光标位置到char 之处(之前)
 |        | iw                | 整个单词（不包括分隔符）
 |        | aw                | 整个单词（包括分隔符）
 |        | iW                | 整个空格分割的单词（不包括分隔符）
@@ -132,16 +130,12 @@ C/C++查找相关功能需要安装gtags
 |        | as                | 整个句子（包括分隔符）
 |        | ip                | 整个段落（不包括前后空白行）
 |        | ap                | 整个段落（包括前后空白行）
-|        | ib                | 小括号内
-|        | ab                | 小括号内（包含小括号本身）
-|        | iB                | 大括号内
-|        | aB                | 大括号内（包含大括号本身）
-|        | i)                | 小括号内
-|        | a)                | 小括号内（包含小括号本身）
-|        | i]                | 中括号内
-|        | a]                | 中括号内（包含中括号本身）
-|        | i}                | 大括号内
-|        | a}                | 大括号内（包含大括号本身）
+|        | ib或i)或i(        | 小括号内
+|        | ab或a)或a(        | 小括号内（包含小括号本身）
+|        | iB或i}或i{        | 大括号内
+|        | aB或a}或a{        | 大括号内（包含大括号本身）
+|        | i]或i[            | 中括号内
+|        | a]或a[            | 中括号内（包含中括号本身）
 |        | i'                | 单引号内
 |        | a'                | 单引号内（包含单引号本身）
 |        | i"                | 双引号内
@@ -166,7 +160,7 @@ C/C++查找相关功能需要安装gtags
 |                   | gT               | 跳转到上一个tab
 | ;t                | :terminal        | 打开新终端，在终端中使用CTRL-W使用vim窗口控制
 | CTRL {h或j或k或l} | CTRL-W {h/j/k/l} | 在多个窗口跳转
-|                   | CTRL-W {h/j/k/l} | 将当前窗口移动到某一方向
+|                   | CTRL-W {H/J/K/L} | 将当前窗口移动到某一方向
 |                   | CTRL-W o         | 仅保留当前窗口，关闭其他所有窗口
 |                   | CTRL-W =         | 将所有窗口的高度宽度设置为与当前窗口一样
 |                   | CTRL-W [n]+或-   | 增加或减少[n]单位的当前窗口高度
@@ -180,15 +174,15 @@ C/C++查找相关功能需要安装gtags
 | -----  | -----  | ----
 |        | CTRL-] | 跳转到定义，需要ctag生成tags文件
 |        | gf     | 跳转到头文件，找不到则需要在.vimrc中设置path
-| ;fs    |        | Find symbol (reference) under cursor
-| ;fg    |        | Find symbol definition under cursor
-| ;fd    |        | Functions called by this function
-| ;fc    |        | Functions calling this function
-| ;ft    |        | Find text string under cursor
-| ;fe    |        | Find egrep pattern under cursor
-| ;ff    |        | Find file name under cursor
-| ;fi    |        | Find files including the file name under cursor
-| ;fa    |        | Find places where current symbol is assigned
+| ;fs    |        | Find this symbol
+| ;fg    |        | Find this definition
+| ;fd    |        | Find functions called by this function
+| ;fc    |        | Find functions calling this function
+| ;ft    |        | Find this text string
+| ;fe    |        | Find this egrep pattern
+| ;ff    |        | Find this file
+| ;fi    |        | Find files #including this file
+| ;fa    |        | Find places where this symbol is assigned a value
 | ;fz    |        | Find current word in ctags database
 
 ## C/C++、LSP、代码提示补全等（默认未安装，使用ctags和gtags已经足够）

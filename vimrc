@@ -79,7 +79,7 @@ map <C-B> :call smooth_scroll#up(&scroll*2, 5, 1)<CR>
 map <C-F> :call smooth_scroll#down(&scroll*2, 5, 1)<CR>
 
 " Plug 'ctrlpvim/ctrlp.vim'
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']		" 忽略.gitignore中的文件
 
 " Plug 'jiangmiao/auto-pairs'
 
