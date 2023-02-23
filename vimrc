@@ -135,3 +135,5 @@ inoremap <expr> <CR>    pumvisible() ? "\<C-o>" : "\<CR>"
 
 " Plug 'rust-lang/rust.vim'
 nmap <Leader>rf :RustFmt<CR>
+nmap <Leader>rr :RustRun<CR>
+
