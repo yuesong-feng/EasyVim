@@ -46,7 +46,9 @@ call plug#begin()
 	Plug 'ludovicchabant/vim-gutentags'
 	Plug 'skywind3000/gutentags_plus'
 
-	" Plug 'dense-analysis/ale'
+	Plug 'dense-analysis/ale'
+
+	Plug 'rust-lang/rust.vim'
 call plug#end()
 
 " Plug 'morhetz/gruvbox'
@@ -85,8 +87,8 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 
 " Plug 'preservim/nerdcommenter'
 let NERDSpaceDelims = 1
-let NERDCreateDefaultMappings = 0
-map <Leader>c <plug>NERDCommenterToggle
+" let NERDCreateDefaultMappings = 0
+" map <Leader>c <plug>NERDCommenterToggle
 
 " Plug 'junegunn/vim-easy-align'
 " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -105,27 +107,31 @@ let g:gutentags_modules = ['ctags', 'gtags_cscope']
 let g:gutentags_plus_switch = 1 " change focus to quickfix window after search (optional).
 let g:gutentags_plus_height = 10
 let g:gutentags_plus_nomap = 1
-noremap <silent> <leader>fs :GscopeFind s <C-R><C-W><cr>
-noremap <silent> <leader>fg :GscopeFind g <C-R><C-W><cr>
-noremap <silent> <leader>fc :GscopeFind c <C-R><C-W><cr>
-noremap <silent> <leader>ft :GscopeFind t <C-R><C-W><cr>
-noremap <silent> <leader>fe :GscopeFind e <C-R><C-W><cr>
-noremap <silent> <leader>ff :GscopeFind f <C-R>=expand("<cfile>")<cr><cr>
-noremap <silent> <leader>fi :GscopeFind i <C-R>=expand("<cfile>")<cr><cr>
-noremap <silent> <leader>fd :GscopeFind d <C-R><C-W><cr>
-noremap <silent> <leader>fa :GscopeFind a <C-R><C-W><cr>
-noremap <silent> <leader>fz :GscopeFind z <C-R><C-W><cr>
+noremap <silent> <leader>gs :GscopeFind s <C-R><C-W><cr>
+noremap <silent> <leader>gg :GscopeFind g <C-R><C-W><cr>
+noremap <silent> <leader>gc :GscopeFind c <C-R><C-W><cr>
+noremap <silent> <leader>gt :GscopeFind t <C-R><C-W><cr>
+noremap <silent> <leader>ge :GscopeFind e <C-R><C-W><cr>
+noremap <silent> <leader>gf :GscopeFind f <C-R>=expand("<cfile>")<cr><cr>
+noremap <silent> <leader>gi :GscopeFind i <C-R>=expand("<cfile>")<cr><cr>
+noremap <silent> <leader>gd :GscopeFind d <C-R><C-W><cr>
+noremap <silent> <leader>ga :GscopeFind a <C-R><C-W><cr>
+noremap <silent> <leader>gz :GscopeFind z <C-R><C-W><cr>
 
 " Plug 'dense-analysis/ale'
-" let g:ale_completion_enabled = 1
-" let g:ale_floating_preview = 1
-" nmap <Leader>g :ALEGoToDefinition<CR>
-" nmap <Leader>s :ALESymbolSearch 
-" nmap <Leader>f :ALEFindReferences<CR>
-" nmap <Leader>rn :ALERename<CR>
-" nmap <space> :ALEHover<CR>
-" set completeopt=menu,menuone,popup,noselect,noinsert
-" inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-" inoremap <expr> <CR>    pumvisible() ? "\<C-o>" : "\<CR>"
+let g:ale_completion_enabled = 1
+let g:ale_floating_preview = 1
+set completeopt=menu,menuone,popup,noselect,noinsert
+let g:ale_linters = {'rust': ['analyzer']}
+nmap <Leader>ag :ALEGoToDefinition<CR>
+nmap <Leader>as :ALESymbolSearch 
+nmap <Leader>af :ALEFindReferences<CR>
+nmap <Leader>ar :ALERename<CR>
+nmap <Leader>ah :ALEHover<CR>
+nmap <Leader>aa :ALECodeAction<CR>
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <CR>    pumvisible() ? "\<C-o>" : "\<CR>"
 
+" Plug 'rust-lang/rust.vim'
+nmap <Leader>rf :RustFmt<CR>

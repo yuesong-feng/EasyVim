@@ -87,22 +87,22 @@ C/C++查找相关功能需要安装gtags
 
 ## 编辑
 
-| 快捷键 | 原指令             | 描述
-| -----  | -----              | ----
-|        | u或CTRL-R          | 撤销(反撤销)
-|        | x或X               | 删除当前(向前删除)字符
-|        | [n]r{char}         | 替换(n个)字符为char
-|        | J                  | 删除当前行尾的换行符
-| d;l    | D或d$              | 剪切当前行到行尾
-|        | [n]dd              | 剪切n行，没有n表示剪切一行
-|        | [n]yy              | 复制n行，没有n表示复制当前行
-|        | [n]cc              | 改写n行，没有n表示复制当前行，同S
-|        | p                  | 在当前位置后粘贴
-|        | P                  | 在当前位置前粘贴
-| ;c     |                    | 注释/反注释当前行或选中内容
-| ;w     | :w                 | 保存
-| ;q     | :q                 | 退出
-|        | c{}或d{}或v{}或y{} | 更改、删除、选中、拷贝{}作用域中的内容，作用域在下方表格中
+| 快捷键    | 原指令             | 描述
+| -----     | -----              | ----
+|           | u或CTRL-R          | 撤销(反撤销)
+|           | x或X               | 删除当前(向前删除)字符
+|           | [n]r{char}         | 替换(n个)字符为char
+|           | J                  | 删除当前行尾的换行符
+| d;l       | D或d$              | 剪切当前行到行尾
+|           | [n]dd              | 剪切n行，没有n表示剪切一行
+|           | [n]yy              | 复制n行，没有n表示复制当前行
+|           | [n]cc              | 改写n行，没有n表示复制当前行，同S
+|           | p                  | 在当前位置后粘贴
+|           | P                  | 在当前位置前粘贴
+| ;c<space> |                    | 注释/反注释当前行或选中内容
+| ;w        | :w                 | 保存
+| ;q        | :q                 | 退出
+|           | c{}或d{}或v{}或y{} | 更改、删除、选中、拷贝{}作用域中的内容，作用域在下方表格中
 
 ## c,d,v,y命令后的作用域
 
@@ -174,25 +174,31 @@ C/C++查找相关功能需要安装gtags
 | -----  | -----  | ----
 |        | CTRL-] | 跳转到定义，需要ctag生成tags文件
 |        | gf     | 跳转到头文件，找不到则需要在.vimrc中设置path
-| ;fs    |        | Find this symbol
-| ;fg    |        | Find this definition
-| ;fd    |        | Find functions called by this function
-| ;fc    |        | Find functions calling this function
-| ;ft    |        | Find this text string
-| ;fe    |        | Find this egrep pattern
-| ;ff    |        | Find this file
-| ;fi    |        | Find files #including this file
-| ;fa    |        | Find places where this symbol is assigned a value
-| ;fz    |        | Find current word in ctags database
+| ;gs    |        | Find this symbol
+| ;gg    |        | Find this definition
+| ;gd    |        | Find functions called by this function
+| ;gc    |        | Find functions calling this function
+| ;gt    |        | Find this text string
+| ;ge    |        | Find this egrep pattern
+| ;gf    |        | Find this file
+| ;gi    |        | Find files #including this file
+| ;ga    |        | Find places where this symbol is assigned a value
+| ;gz    |        | Find current word in ctags database
 
-## C/C++、LSP、代码提示补全等（默认未安装，使用ctags和gtags已经足够）
+## C/C++、LSP、代码提示补全等
 
-| 快捷键            | 原指令                           | 描述
-| -----             | -----                            | ----
-| ;g                | :ALEGoToDefinition               | 跳转到定义，需要LSP
-| ;f                | :ALEFindReferences               | 查找引用出现的地方
-| ;s                | :ALESymbolSearch                 | 查找系统符号
-| space             | :ALEHover                        | 显示详细信息
-| ;rn               | :ALERename                       | 重命名
-| 完善中            | 完善中                           | 完善中
+| 快捷键 | 原指令             | 描述
+| -----  | -----              | ----
+| ;ag    | :ALEGoToDefinition | 跳转到定义
+| ;af    | :ALEFindReferences | 查找引用
+| ;as    | :ALESymbolSearch   | 查找系统符号
+| ;ah    | :ALEHover          | 显示详细信息
+| ;ar    | :ALERename         | 重命名
+| ;aa    | :ALECodeAction     | 代码自动优化
+
+## rust
+
+| 快捷键 | 原指令   | 描述
+| -----  | -----    | ----
+| ;rf    | :RustFmt | 代码格式化
 
