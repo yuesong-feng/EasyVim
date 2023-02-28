@@ -104,7 +104,7 @@ let g:gutentags_cache_dir = "~/.cache/tags"
 let g:gutentags_modules = ['ctags', 'gtags_cscope']
 
 " Plug 'skywind3000/gutentags_plus'
-let g:gutentags_plus_switch = 1 " change focus to quickfix window after search (optional).
+" let g:gutentags_plus_switch = 1 
 let g:gutentags_plus_height = 10
 let g:gutentags_plus_nomap = 1
 noremap <silent> <leader>gs :GscopeFind s <C-R><C-W><cr>
@@ -117,6 +117,19 @@ noremap <silent> <leader>gi :GscopeFind i <C-R>=expand("<cfile>")<cr><cr>
 noremap <silent> <leader>gd :GscopeFind d <C-R><C-W><cr>
 noremap <silent> <leader>ga :GscopeFind a <C-R><C-W><cr>
 noremap <silent> <leader>gz :GscopeFind z <C-R><C-W><cr>
+
+function! IsQuickfixOpen()
+	for buf in getbufinfo({'buflisted':1})
+		if buf.variables.current_syntax == 'qf'
+			return 1
+		endif
+	endfor
+	return 0
+endfunc
+
+noremap <expr> J IsQuickfixOpen() ? ":cn<cr>" : "J"
+noremap <expr> K IsQuickfixOpen() ? ":cp<cr>" : "K"
+noremap <expr> q IsQuickfixOpen() ? ":ccl<cr>" : "q"
 
 " Plug 'dense-analysis/ale'
 let g:ale_completion_enabled = 1

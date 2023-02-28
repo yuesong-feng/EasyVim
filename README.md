@@ -18,7 +18,11 @@ vim
 
 tagbar显示和CTRL-]跳转需要安装ctags
 C/C++查找相关功能需要安装gtags
-LSP相关功能需要安装LSP服务器，如ccls、clangd等
+强烈推荐将ctags、gtags结合使用，即使用--with-universal-ctags来编译安装gtags。
+LSP相关功能需要安装每种语言的LSP服务器，如ccls、clangd等，还需要配置compile_commands.json路径。
+开发C/C++时，ctags+gtags和LSP选一种使用即可，也可同时使用，默认都开启了，如果使用卡顿可以禁用LSP相关插件。
+
+**下列快捷键可能随时有变动，以github主页上为准。**
 
 ## 模式
 
@@ -154,9 +158,9 @@ LSP相关功能需要安装LSP服务器，如ccls、clangd等
 | ;n                | :NERDTreeToggle  | 打开目录
 | ;m                | :TagbarToggle    | 打开tag列表
 | ;[1-9]            |                  | 转到第n个buffer
-| Tab或;bn          | :bn              | 下一个buffer
-| S-Tab或;bp        | :np              | 上一个buffer
 | ;bd               | :bd              | 关闭当前buffer
+| ;bn               | :bn              | 下一个buffer
+| ;bp               | :bp              | 上一个buffer
 |                   | gt               | 跳转到下一个tab
 |                   | gT               | 跳转到上一个tab
 | ;t                | :terminal        | 打开新终端，在终端中使用CTRL-W使用vim窗口控制
