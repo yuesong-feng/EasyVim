@@ -16,6 +16,9 @@ vim
 :PlugInstall
 ```
 
+可以在vimrc配置文件中选择是否启用tags、ale、rust等可选插件功能。
+默认为0，改为1即可开启，会自动安装插件、注册配置。
+
 tagbar显示和CTRL-]跳转需要安装ctags
 C/C++查找相关功能需要安装gtags
 强烈推荐将ctags、gtags结合使用，即使用--with-universal-ctags来编译安装gtags。

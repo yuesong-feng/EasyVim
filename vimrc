@@ -26,29 +26,42 @@ map <C-h> <C-W>h
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-l> <C-W>l
+
 " gf命令文件跳转路径
 set path+=~/Desktop/postgresql-15.2/src/include
 set path+=/Library/Developer/CommandLineTools/usr/include/c++/v1
 
+" 可选插件
+let tags = 0
+let ale = 0
+let rust = 0
+
 call plug#begin()
-	Plug 'morhetz/gruvbox'
-	Plug 'vim-airline/vim-airline'
+	Plug 'morhetz/gruvbox'                " 主题
+	Plug 'vim-airline/vim-airline'        " 状态栏
 	
-	Plug 'preservim/nerdtree'
-	Plug 'terryma/vim-smooth-scroll'
-	Plug 'ctrlpvim/ctrlp.vim'
+	Plug 'preservim/nerdtree'             " 文件树
+	Plug 'terryma/vim-smooth-scroll'      " 动态滚动
+	Plug 'ctrlpvim/ctrlp.vim'             " 文件/目录模糊搜索
 
-	Plug 'jiangmiao/auto-pairs'
-	Plug 'preservim/nerdcommenter'
-	Plug 'junegunn/vim-easy-align'
-	
-	Plug 'preservim/tagbar'
-	Plug 'ludovicchabant/vim-gutentags'
-	Plug 'skywind3000/gutentags_plus'
+	Plug 'jiangmiao/auto-pairs'           " 自动补全括号
+	Plug 'preservim/nerdcommenter'        " 代码注释
+	Plug 'junegunn/vim-easy-align'        " 文本对齐
+		
+	if tags == 1
+		Plug 'preservim/tagbar'             " 查看标签
+		Plug 'ludovicchabant/vim-gutentags' " 自动生成tags文件
+		Plug 'skywind3000/gutentags_plus'   " 自动更新tags文件
+	endif
 
-	Plug 'dense-analysis/ale'
+	if ale == 1
+		Plug 'dense-analysis/ale'           " 代码异步检查、LSP支持
+	endif
 
-	Plug 'rust-lang/rust.vim'
+	if rust == 1
+		Plug 'rust-lang/rust.vim'           " rust插件
+	endif
+
 call plug#end()
 
 " Plug 'morhetz/gruvbox'
@@ -96,57 +109,68 @@ xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
-" Plug 'preservim/tagbar'
-map <leader>m :TagbarToggle<CR>
+if tags == 1
 
-" Plug 'ludovicchabant/vim-gutentags'
-let g:gutentags_cache_dir = "~/.cache/tags"
-let g:gutentags_modules = ['ctags', 'gtags_cscope']
+	" Plug 'preservim/tagbar'
+	map <leader>m :TagbarToggle<CR>
 
-" Plug 'skywind3000/gutentags_plus'
-" let g:gutentags_plus_switch = 1 
-let g:gutentags_plus_height = 10
-let g:gutentags_plus_nomap = 1
-noremap <silent> <leader>gs :GscopeFind s <C-R><C-W><cr>
-noremap <silent> <leader>gg :GscopeFind g <C-R><C-W><cr>
-noremap <silent> <leader>gc :GscopeFind c <C-R><C-W><cr>
-noremap <silent> <leader>gt :GscopeFind t <C-R><C-W><cr>
-noremap <silent> <leader>ge :GscopeFind e <C-R><C-W><cr>
-noremap <silent> <leader>gf :GscopeFind f <C-R>=expand("<cfile>")<cr><cr>
-noremap <silent> <leader>gi :GscopeFind i <C-R>=expand("<cfile>")<cr><cr>
-noremap <silent> <leader>gd :GscopeFind d <C-R><C-W><cr>
-noremap <silent> <leader>ga :GscopeFind a <C-R><C-W><cr>
-noremap <silent> <leader>gz :GscopeFind z <C-R><C-W><cr>
+	" Plug 'ludovicchabant/vim-gutentags'
+	let g:gutentags_cache_dir = "~/.cache/tags"
+	let g:gutentags_modules = ['ctags', 'gtags_cscope']
 
-function! IsQuickfixOpen()
-	for buf in getbufinfo({'buflisted':1})
-		if buf.variables.current_syntax == 'qf'
-			return 1
-		endif
-	endfor
-	return 0
-endfunc
+	" Plug 'skywind3000/gutentags_plus'
+	let g:gutentags_plus_switch = 1 
+	let g:gutentags_plus_height = 10
+	let g:gutentags_plus_nomap = 1
+	noremap <silent> <leader>gs :GscopeFind s <C-R><C-W><cr>
+	noremap <silent> <leader>gg :GscopeFind g <C-R><C-W><cr>
+	noremap <silent> <leader>gc :GscopeFind c <C-R><C-W><cr>
+	noremap <silent> <leader>gt :GscopeFind t <C-R><C-W><cr>
+	noremap <silent> <leader>ge :GscopeFind e <C-R><C-W><cr>
+	noremap <silent> <leader>gf :GscopeFind f <C-R>=expand("<cfile>")<cr><cr>
+	noremap <silent> <leader>gi :GscopeFind i <C-R>=expand("<cfile>")<cr><cr>
+	noremap <silent> <leader>gd :GscopeFind d <C-R><C-W><cr>
+	noremap <silent> <leader>ga :GscopeFind a <C-R><C-W><cr>
+	noremap <silent> <leader>gz :GscopeFind z <C-R><C-W><cr>
 
-noremap <expr> J IsQuickfixOpen() ? ":cn<cr>" : "J"
-noremap <expr> K IsQuickfixOpen() ? ":cp<cr>" : "K"
-noremap <expr> q IsQuickfixOpen() ? ":ccl<cr>" : "q"
+	function! IsQuickfixOpen()
+		for buf in getbufinfo({'buflisted':1})
+			if buf.variables.current_syntax == 'qf'
+				return 1
+			endif
+		endfor
+		return 0
+	endfunc
 
-" Plug 'dense-analysis/ale'
-let g:ale_completion_enabled = 1
-let g:ale_floating_preview = 1
-set completeopt=menu,menuone,popup,noselect,noinsert
-let g:ale_linters = {'rust': ['analyzer']}
-nmap <Leader>ag :ALEGoToDefinition<CR>
-nmap <Leader>as :ALESymbolSearch 
-nmap <Leader>af :ALEFindReferences<CR>
-nmap <Leader>ar :ALERename<CR>
-nmap <Leader>ah :ALEHover<CR>
-nmap <Leader>aa :ALECodeAction<CR>
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <CR>    pumvisible() ? "\<C-o>" : "\<CR>"
+	noremap <expr> J IsQuickfixOpen() ? ":cn<cr>" : "J"
+	noremap <expr> K IsQuickfixOpen() ? ":cp<cr>" : "K"
+	noremap <expr> q IsQuickfixOpen() ? ":ccl<cr>" : "q"
 
-" Plug 'rust-lang/rust.vim'
-nmap <Leader>rf :RustFmt<CR>
-nmap <Leader>rr :RustRun<CR>
+endif
 
+if ale == 1
+
+	" Plug 'dense-analysis/ale'
+	let g:ale_completion_enabled = 1
+	let g:ale_floating_preview = 1
+	set completeopt=menu,menuone,popup,noselect,noinsert
+	let g:ale_linters = {'rust': ['analyzer']}
+	nmap <Leader>ag :ALEGoToDefinition<CR>
+	nmap <Leader>as :ALESymbolSearch 
+	nmap <Leader>af :ALEFindReferences<CR>
+	nmap <Leader>ar :ALERename<CR>
+	nmap <Leader>ah :ALEHover<CR>
+	nmap <Leader>aa :ALECodeAction<CR>
+	inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+	inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+	inoremap <expr> <CR>    pumvisible() ? "\<C-o>" : "\<CR>"
+
+endif
+
+if rust == 1
+
+	" Plug 'rust-lang/rust.vim'
+	nmap <Leader>rf :RustFmt<CR>
+	nmap <Leader>rr :RustRun<CR>
+
+endif
