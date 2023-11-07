@@ -16,7 +16,7 @@ vim
 :PlugInstall
 ```
 
-可以在vimrc配置文件中选择是否启用tags、ale、rust等可选插件功能。
+可以在vimrc配置文件中选择是否启用tags、ale等可选插件功能。
 默认为0，改为1即可开启，会自动安装插件、注册配置。
 
 tagbar显示和CTRL-]跳转需要安装ctags
@@ -108,8 +108,8 @@ LSP相关功能需要安装每种语言的LSP服务器，如ccls、clangd等，�
 |             | p                             | 在当前位置后粘贴
 |             | P                             | 在当前位置前粘贴
 | ;c\<space\> |                               | 注释/反注释当前行或选中内容
-| ;w          | :w                            | 保存
-| ;q          | :q                            | 退出
+|             | :w                            | 保存
+|             | :q                            | 退出
 |             | c{}或d{}或v{}或y{}            | 更改、删除、选中、拷贝{ }作用域中的内容，作用域在下方表格中
 
 ## c,d,v,y命令后的作用域
@@ -161,9 +161,9 @@ LSP相关功能需要安装每种语言的LSP服务器，如ccls、clangd等，�
 | ;n                | :NERDTreeToggle  | 打开目录
 | ;m                | :TagbarToggle    | 打开tag列表
 | ;[1-9]            |                  | 转到第n个buffer
-| ;bd               | :bd              | 关闭当前buffer
-| ;bn               | :bn              | 下一个buffer
-| ;bp               | :bp              | 上一个buffer
+|                   | :bd              | 关闭当前buffer
+|                   | :bn              | 下一个buffer
+|                   | :bp              | 上一个buffer
 |                   | gt               | 跳转到下一个tab
 |                   | gT               | 跳转到上一个tab
 | ;t                | :terminal        | 打开新终端，在终端中使用CTRL-W使用vim窗口控制
@@ -203,11 +203,4 @@ LSP相关功能需要安装每种语言的LSP服务器，如ccls、clangd等，�
 | ;ah    | :ALEHover          | 显示详细信息
 | ;ar    | :ALERename         | 重命名
 | ;aa    | :ALECodeAction     | 代码自动优化
-
-## rust
-
-| 快捷键 | 原指令   | 描述
-| -----  | -----    | ----
-| ;rf    | :RustFmt | 代码格式化
-| ;rr    | :RustRun | 运行rust代码
 
