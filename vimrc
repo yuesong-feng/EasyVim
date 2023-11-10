@@ -8,9 +8,9 @@ set cursorline                                    " 高亮当前行
 set showcmd                                       " 右下角显示输入的命令
 set nowrap                                        " 行超过vim窗口时禁止折行
 set wildmenu                                      " 输入vim命令时，按Tab键在上方显示所有补全命令
-set smarttab tabstop=4 softtabstop=4 shiftwidth=4 " 缩进的空格数
+set tabstop=4 shiftwidth=4 expandtab smarttab     " 缩进的空格数
 set autoindent smartindent cindent                " 自动缩进设置
-set hlsearch ignorecase incsearch smartcase       " 搜索相关设置
+set hlsearch incsearch ignorecase smartcase       " 搜索相关设置
 map <Leader>/ :noh<CR>
 map <Leader>h ^
 map <Leader>l $
