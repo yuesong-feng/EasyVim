@@ -1,8 +1,4 @@
 set nocompatible                                  " 设置不兼容原始vi模式
-let mapleader = ";"                               " 定义<leader>键
-filetype plugin indent on                         " 检测文件类型，打开基于文件类型的插件和缩进
-syntax enable                                     " 语法高亮，不覆盖自定义设置
-set noerrorbells visualbell                       " 禁止错误提示音
 set number                                        " 显示行号
 set cursorline                                    " 高亮当前行
 set showcmd                                       " 右下角显示输入的命令
@@ -11,6 +7,10 @@ set wildmenu                                      " 输入vim命令时，按Tab�
 set tabstop=4 shiftwidth=4 expandtab smarttab     " 缩进的空格数
 set autoindent smartindent cindent                " 自动缩进设置
 set hlsearch incsearch ignorecase smartcase       " 搜索相关设置
+filetype plugin indent on                         " 检测文件类型，打开基于文件类型的插件和缩进
+syntax enable                                     " 语法高亮，不覆盖自定义设置
+let mapleader = ";"                               " 定义<leader>键
+
 map <Leader>/ :noh<CR>
 map <Leader>h ^
 map <Leader>l $
