@@ -1,29 +1,32 @@
 # EasyVim
 
-简单易用的vim配置，熟练后可大大提高开发效率（VS Code的两倍以上）。
+Make Vim easy to use.
+
+EasyVim is only for basic text/code browsing and simple code editing with minimal workload.
+
+If you want to use tags to source your code, ctags is needed and universal-ctags is recommanded.
+
+If you want to turn vim into an IDE, try EasyNvim.
+
+I've tried many lsp configurations in vim such as vim-lsp, ALE. They suck.
+
+It will be a better idea to use NeoVim for heavy developing. Many configurations turn nvim into an IDE with excellent coding experience. EasyNvim is one of them.
 
 ![EasyVim](./EasyVim.png)
 
-## 安装
+## Install
 
-安装过程需要从github下载很多插件，国内尽量挂VPN
+Installation will download plugins from github.
+
+A VPN may be needed in mainland China.
 
 ```bash
-git clone https://github.com/yuesong-feng/EasyVim
+git clone https://github.com/yuesong-feng/EasyVim.git
 cd EasyVim/
-sh ./install.sh 
+./install.sh 
 vim
 :PlugInstall
 ```
-
-可以在vimrc配置文件中选择是否启用tags、ale等可选插件功能。
-默认为0，改为1即可开启，会自动安装插件、注册配置。
-
-tagbar显示和CTRL-]跳转需要安装ctags
-C/C++查找相关功能需要安装gtags
-强烈推荐将ctags、gtags结合使用，即使用--with-universal-ctags来编译安装gtags。
-LSP相关功能需要安装每种语言的LSP服务器，如ccls、clangd等，还需要配置compile_commands.json路径。
-开发C/C++时，ctags+gtags和LSP选一种使用即可，也可同时使用，默认都开启了，如果使用卡顿可以禁用LSP相关插件。
 
 **下列快捷键可能随时有变动，以github主页上为准。**
 
@@ -175,32 +178,4 @@ LSP相关功能需要安装每种语言的LSP服务器，如ccls、clangd等，�
 |                   | CTRL-W _         | 将当前窗口的高度设置为尽可能最高
 |                   | CTRL-W [n]<或>   | 增加或减少[n]单位的当前窗口宽度
 |                   | CTRL-W \|        | 将当前窗口的宽度设置为尽可能最宽
-
-## C/C++开发、gtags
-
-| 快捷键 | 原指令 | 描述
-| -----  | -----  | ----
-|        | CTRL-] | 跳转到定义，需要ctag生成tags文件
-|        | gf     | 跳转到头文件，找不到则需要在.vimrc中设置path
-| ;gs    |        | Find this symbol
-| ;gg    |        | Find this definition
-| ;gd    |        | Find functions called by this function
-| ;gc    |        | Find functions calling this function
-| ;gt    |        | Find this text string
-| ;ge    |        | Find this egrep pattern
-| ;gf    |        | Find this file
-| ;gi    |        | Find files #including this file
-| ;ga    |        | Find places where this symbol is assigned a value
-| ;gz    |        | Find current word in ctags database
-
-## C/C++、LSP、代码提示补全等
-
-| 快捷键 | 原指令             | 描述
-| -----  | -----              | ----
-| ;ag    | :ALEGoToDefinition | 跳转到定义
-| ;af    | :ALEFindReferences | 查找引用
-| ;as    | :ALESymbolSearch   | 查找系统符号
-| ;ah    | :ALEHover          | 显示详细信息
-| ;ar    | :ALERename         | 重命名
-| ;aa    | :ALECodeAction     | 代码自动优化
 

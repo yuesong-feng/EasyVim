@@ -29,21 +29,17 @@ set path+=/Library/Developer/CommandLineTools/usr/include/c++/v1
 let ctags = 1
 
 call plug#begin()
-	Plug 'morhetz/gruvbox'         " 主题
-	Plug 'vim-airline/vim-airline' " 状态栏
-	Plug 'luochen1990/rainbow'     " 彩虹括号
-	Plug 'preservim/nerdtree'      " 文件树
-	Plug 'psliwka/vim-smoothie'    " 动态滚动
-	Plug 'ctrlpvim/ctrlp.vim'      " 文件/目录模糊搜索
-	Plug 'jiangmiao/auto-pairs'    " 自动补全括号
-	Plug 'preservim/nerdcommenter' " 代码注释
-	Plug 'junegunn/vim-easy-align' " 文本对齐
-		
-	if ctags == 1
-		Plug 'preservim/tagbar'             " 查看标签
-		Plug 'ludovicchabant/vim-gutentags' " 自动生成tags文件
-		Plug 'skywind3000/gutentags_plus'   " 自动更新tags文件
-	endif
+	Plug 'morhetz/gruvbox'              " 主题
+	Plug 'vim-airline/vim-airline'      " 状态栏
+	Plug 'luochen1990/rainbow'          " 彩虹括号
+	Plug 'preservim/nerdtree'           " 文件树
+	Plug 'psliwka/vim-smoothie'         " 动态滚动
+	Plug 'ctrlpvim/ctrlp.vim'           " 文件/目录模糊搜索
+	Plug 'jiangmiao/auto-pairs'         " 自动补全括号
+	Plug 'preservim/nerdcommenter'      " 代码注释
+	Plug 'junegunn/vim-easy-align'      " 文本对齐
+    Plug 'preservim/tagbar'             " 查看标签
+	Plug 'ludovicchabant/vim-gutentags' " 自动生成tags文件
 call plug#end()
 
 " Plug 'morhetz/gruvbox'
@@ -84,15 +80,10 @@ xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
-if ctags == 1
-	" Plug 'preservim/tagbar'
-	map <leader>m :TagbarToggle<CR>
+" Plug 'preservim/tagbar'
+map <leader>m :TagbarToggle<CR>
 
-	" Plug 'ludovicchabant/vim-gutentags'
-	let g:gutentags_cache_dir = "~/.cache/tags"
-	let g:gutentags_modules = ['ctags']
-
-	" Plug 'skywind3000/gutentags_plus'
-	let g:gutentags_plus_switch = 1 
-endif
+" Plug 'ludovicchabant/vim-gutentags'
+let g:gutentags_cache_dir = "~/.cache/tags"
+let g:gutentags_modules = ['ctags']
 
