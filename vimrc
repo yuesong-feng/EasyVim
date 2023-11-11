@@ -9,7 +9,7 @@ set autoindent smartindent cindent                " 自动缩进设置
 set hlsearch incsearch ignorecase smartcase       " 搜索相关设置
 filetype plugin indent on                         " 检测文件类型，打开基于文件类型的插件和缩进
 syntax enable                                     " 语法高亮，不覆盖自定义设置
-let mapleader = ";"                               " 定义<leader>键
+let mapleader = ";"								  " 设置leader键
 
 map <Leader>/ :noh<CR>
 map <Leader>h ^
@@ -25,19 +25,16 @@ map <C-l> <C-W>l
 " gf命令文件跳转路径
 set path+=/Library/Developer/CommandLineTools/usr/include/c++/v1
 
-" 可选插件
-let ctags = 1
-
 call plug#begin()
 	Plug 'morhetz/gruvbox'              " 主题
 	Plug 'vim-airline/vim-airline'      " 状态栏
 	Plug 'luochen1990/rainbow'          " 彩虹括号
 	Plug 'preservim/nerdtree'           " 文件树
 	Plug 'psliwka/vim-smoothie'         " 动态滚动
-	Plug 'ctrlpvim/ctrlp.vim'           " 文件/目录模糊搜索
 	Plug 'jiangmiao/auto-pairs'         " 自动补全括号
 	Plug 'preservim/nerdcommenter'      " 代码注释
 	Plug 'junegunn/vim-easy-align'      " 文本对齐
+	Plug 'ctrlpvim/ctrlp.vim'           " 文件/目录模糊搜索
     Plug 'preservim/tagbar'             " 查看标签
 	Plug 'ludovicchabant/vim-gutentags' " 自动生成tags文件
 call plug#end()
@@ -68,9 +65,6 @@ let g:rainbow_active = 1
 let NERDTreeShowHidden = 1      "显示隐藏文件
 map <Leader>n :NERDTreeToggle<CR>
 
-" Plug 'ctrlpvim/ctrlp.vim'
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']		" 忽略.gitignore中的文件
-
 " Plug 'preservim/nerdcommenter'
 let NERDSpaceDelims = 1
 
@@ -79,6 +73,9 @@ let NERDSpaceDelims = 1
 xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+" Plug 'ctrlpvim/ctrlp.vim'
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']		" 忽略.gitignore中的文件
 
 " Plug 'preservim/tagbar'
 map <leader>m :TagbarToggle<CR>
